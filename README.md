@@ -1,5 +1,10 @@
 # Descrição do Projeto: Sistema de Cadastro de Usuários com React, Vite, Hooks, Axios e useRef
 
+## Comandos para rodar:
+  - npm run dev
+  - json-server --watch -p 3000 db.json
+  - link: https://cadastro-de-usuarios-psi.vercel.app/
+
 ![cadastro-de-usuarios img](https://github.com/user-attachments/assets/d45837ad-3fe4-424b-8434-818f4ce52211)
 
 ## Objetivo
@@ -50,6 +55,4 @@ Este projeto visa criar um sistema de cadastro de utilizadores que consome uma A
   - O utilizador submete o formulário e os dados são enviados à API usando Axios (POST).
   - Após a resposta da API, a lista de utilizadores é atualizada em tempo real e exibida na interface.
     
-## Comandos para rodar:
-  - npm run dev
-  - json-server --watch -p 3000 db.json 
+ 
