@@ -1,8 +1,6 @@
-# React + Vite
+# Sistema de cadastro de usuarios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![cadastro-de-usuarios img](https://github.com/user-attachments/assets/d45837ad-3fe4-424b-8434-818f4ce52211)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Utilizando React.js + vite e os hooks: useEffect, useState e useRef, desenvolvi as funcionalidades de cadastrar usuários na API, consumindo a API com axios para enviar um novo usuário, buscar e deletar os usuários ja cadastrados, os usuários cadastrados são mostrados na tela de forma dinâmica junto um botão de excluir para cada usuário.
