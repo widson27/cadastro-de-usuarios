@@ -33,14 +33,23 @@ Este projeto visa criar um sistema de cadastro de utilizadores que consome uma A
   - Mensagens de sucesso ou erro serão exibidas ao utilizador após o envio do formulário.
 
 ## Tecnologias Utilizadas:
+
 ### React + Vite: para criar uma aplicação front-end rápida e interativa.
 ### Axios: para requisições HTTP (POST para cadastrar e GET para listar utilizadores).
+
 ### React Hooks:
+
   - useState para armazenar e atualizar a lista de utilizadores.
   - useEffect para carregar a lista ao iniciar a aplicação e atualizar após cada cadastro.
   - useRef para capturar os dados do formulário sem re-renderizações desnecessárias, otimizando a performance.
+    
 ## Fluxo do Sistema:
+
   - O utilizador abre a aplicação e vê o formulário de cadastro.
   - Ao preencher os campos, o valor dos inputs é capturado diretamente via useRef.
   - O utilizador submete o formulário e os dados são enviados à API usando Axios (POST).
   - Após a resposta da API, a lista de utilizadores é atualizada em tempo real e exibida na interface.
+    
+## Comandos para rodar:
+  - npm run dev
+  - json-server --watch -p 3000 db.json 
