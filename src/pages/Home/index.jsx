@@ -4,7 +4,32 @@ import axios from 'axios';
 import React from 'react';
 
 function Home() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([
+    {
+      "id": "bc1b",
+      "nome": "André",
+      "idade": "28",
+      "email": "andre@gmail.com"
+    },
+    {
+      "id": "b9ee",
+      "nome": "Ana",
+      "idade": "23",
+      "email": "ana@gmail.com"
+    },
+    {
+      "id": "fff4",
+      "nome": "Miguel",
+      "idade": "21",
+      "email": "miguel@gmail.com"
+    },
+    {
+      "id": "2360",
+      "nome": "Bia",
+      "idade": "21",
+      "email": "bia@gmail.com"
+    }
+  ])
   const inputName = useRef()
   const inputAge = useRef()
   const inputEmail = useRef()
