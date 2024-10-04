@@ -1,78 +1,46 @@
 import { useEffect, useState, useRef } from 'react';
 import './style.css'
-import axios from 'axios';
 import React from 'react';
+import { v4 } from 'uuid';
 
 function Home() {
-  const [users, setUsers] = useState([
-    {
-      "id": "bc1b",
-      "nome": "André",
-      "idade": "28",
-      "email": "andre@gmail.com"
-    },
-    {
-      "id": "b9ee",
-      "nome": "Ana",
-      "idade": "23",
-      "email": "ana@gmail.com"
-    },
-    {
-      "id": "fff4",
-      "nome": "Miguel",
-      "idade": "21",
-      "email": "miguel@gmail.com"
-    },
-    {
-      "id": "2360",
-      "nome": "Bia",
-      "idade": "21",
-      "email": "bia@gmail.com"
-    }
-  ])
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || [])
+
   const inputName = useRef()
   const inputAge = useRef()
   const inputEmail = useRef()
-  
-  async function getUsers() {
-    await axios.get('http://localhost:3000/usuarios')
-      .then(resposta => {
-        setUsers(resposta.data);
-      })
-      .catch(erro => {
-        console.log(erro);
-      });
-  }
 
   useEffect(() => {
-    getUsers()
-  }, []);
+    localStorage.setItem('users', JSON.stringify(users))
+  }, [users]);
 
-  async function createUsers() {
-    await axios.post('http://localhost:3000/usuarios', {
+  function createUsers() {
+    const newUser = {
+      id: v4(),
       nome: inputName.current.value,
       idade: inputAge.current.value,
       email: inputEmail.current.value
-    })
+    }
+
     inputName.current.value = ''
     inputAge.current.value = ''
     inputEmail.current.value = ''
-    getUsers()
+    setUsers([...users, newUser])
   }
 
-  async function deleteUsers(id) {
-    await axios.delete(`http://localhost:3000/usuarios/${id}`)
+  function deleteUsers(userId) {
+    const newUsers = users.filter(user => user.id != userId)
+    setUsers(newUsers)
 
-    getUsers()
   }
 
   return (
     <div className="container">
       <form>
         <h1>Cadastro de Usuários</h1>
-        <input placeholder="Nome" name="nome" type="text" ref={inputName}/>
-        <input placeholder="Idade" name="idade" type="number" ref={inputAge}/>
-        <input placeholder="E-mail" name="email" type="email" ref={inputEmail}/>
+        <input placeholder="Nome" name="nome" type="text" ref={inputName} />
+        <input placeholder="Idade" name="idade" type="number" ref={inputAge} />
+        <input placeholder="E-mail" name="email" type="email" ref={inputEmail} />
         <button type="button" onClick={createUsers}>Cadastrar</button>
       </form>
       {
